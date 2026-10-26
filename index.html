@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pastelería Delicia</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#"> Pastelería Delicia</a>
+      <button class="btn btn-outline-light d-flex align-items-center gap-2" data-bs-toggle="offcanvas" data-bs-target="#carritoDrawer">
+      Carrito <span id="contador" class="badge text-bg-light rounded-pill">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Principal -->
+  <main class="container my-4">
+    <!-- Buscador y Filtros -->
+    <section class="row g-3 mb-4 align-items-center">
+      <div class="col-md-6">
+        <input type="text" id="buscar" class="form-control" placeholder="Buscar postres, panes, salados...">
+      </div>
+      <div class="col-md-6">
+        <ul id="filtros" class="nav nav-pills justify-content-md-end"></ul>
+      </div>
+    </section>
+
+    <!-- Grilla de productos -->
+    <section class="mb-5">
+      <h2 class="h4 fw-bold mb-3">Nuestros Productos</h2>
+      <div id="productos" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+    </section>
+
+    <!-- Formulario de pedido especial -->
+    <section class="card border-0 shadow-sm p-4 mb-5">
+      <h2 class="h4 fw-bold mb-3">Haz un pedido personalizado</h2>
+      <div id="alertaPedido" class="alert alert-success" hidden>
+        ¡Gracias por tu pedido! Te contactaremos pronto.
+      </div>
+      <form id="formPedido" class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Detalles del pedido</label>
+          <textarea class="form-control" rows="2" placeholder="Especifica sabor, tamaño o diseño especial" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Enviar pedido</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Carrito Lateral (Offcanvas) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carritoDrawer">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold">Tu Carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <ul id="listaCarrito" class="list-group list-group-flush mb-auto"></ul>
+      <div class="border-top pt-3 mt-3">
+        <div class="d-flex justify-content-between mb-1">
+          <span>Subtotal:</span>
+          <strong id="subtotal">S/ 0.00</strong>
+        </div>
+        <div class="d-flex justify-content-between text-success mb-1">
+          <span id="descuento"></span>
+        </div>
+        <div class="d-flex justify-content-between fs-5 fw-bold mb-3">
+          <span>Total:</span>
+          <strong id="total">S/ 0.00</strong>
+        </div>
+        <button id="vaciar" class="btn btn-outline-danger w-100 mb-2">Vaciar carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Componente Toast de notificación -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="aviso" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="avisoTexto">Mensaje</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo principal JS gestionado por Vite -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

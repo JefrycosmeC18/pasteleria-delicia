@@ -1,0 +1,23 @@
+:root {
+  --bs-primary: #b8325a;
+  --bs-primary-rgb: 184, 50, 90;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.precio {
+  font-weight: 700;
+  color: #8f2145;
+  font-size: 1.25rem;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
